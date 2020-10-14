@@ -20,3 +20,19 @@ function isAlphaNumeric(char) {
     }
     return true;
 }
+
+// frequency counter pattern
+
+function same(array, array2){
+    if(array.length != array2.length){
+        return false;
+    }
+    for(let i = o; i<array.length; i++){
+        let correctIndex = array2.indexOf(array[i] ** 2)
+        if(correctIndex === -1) {
+            return false;
+        }
+        array2.splice(correctIndex, 1)
+    }
+    return true
+}
