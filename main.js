@@ -103,12 +103,12 @@ function sumZero(arr) {
 
 // count unique values
 function countUniqueValues(arr) {
-    if(arr.length === 0) return 0;
+    if (arr.length === 0) return 0;
     var i = 0;
-    for(var j =1; j< arr.length; j++){
-        if(arr[i] !== arr[j]){
+    for (var j = 1; j < arr.length; j++) {
+        if (arr[i] !== arr[j]) {
             i++;
-            arr[i]=arr[j]
+            arr[i] = arr[j]
         }
     }
     return i + 1;
@@ -116,14 +116,14 @@ function countUniqueValues(arr) {
 
 // sliding window 
 //version that works but is not best
-function maxSubArraySum(arr, num){
-    if (num > arr.length){
+function maxSubArraySum(arr, num) {
+    if (num > arr.length) {
         return null;
     }
     var max = -Infinity;
-    for (let i = 0; i < arr.length - num +1; i++){
+    for (let i = 0; i < arr.length - num + 1; i++) {
         temp = 0;
-        for (let j = 0; j <num; j++){
+        for (let j = 0; j < num; j++) {
             temp += arr[i + j];
         }
         if (temp > max) {
@@ -131,4 +131,20 @@ function maxSubArraySum(arr, num){
         }
     }
     return max;
+}
+
+// better version
+function maxSubArraySumBest(arr, num) {
+    let masSum = 0;
+    let tempSum = 0;
+    if (arr.length < num) return null;
+    for (let i = 0; i < num; i++) {
+        maxSum += arr[i];
+    }
+    tempSum = maxSum;
+    for (let i = num; i < arr.length; i++) {
+        tempSum = tempSum - arr[i - num] + arr[i];
+        maxSum = Math.max(maxSum, tempSum);
+    }
+    return maxSum;
 }
