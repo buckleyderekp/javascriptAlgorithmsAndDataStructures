@@ -148,3 +148,33 @@ function maxSubArraySumBest(arr, num) {
     }
     return maxSum;
 }
+
+//optional challenge
+// given two positive integers find if the two numbers have the same frequncy of digits
+function sameFrequency(num1, num2) {
+
+    let first = num1.toString()
+    let second = num2.toString()
+    if (first.length !== second.length) {
+        return false
+    }
+    let lookup = {}
+
+    for (let i = 0; i < first.length; i++) {
+        let letter = first[i]
+        lookup[letter] ? lookup[letter] += 1 : lookup[letter] = 1;
+    }
+    for (let i = 0; i < second.length; i++) {
+        let letter = second[i]
+
+        if (!lookup[letter]) {
+            return false;
+        }
+        else {
+            lookup[letter] -= 1;
+        }
+    }
+    return true
+}
+
+// divide and conquer
