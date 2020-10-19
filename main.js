@@ -177,4 +177,12 @@ function sameFrequency(num1, num2) {
     return true
 }
 
-// divide and conquer
+// recursion
+function countDown(num) {
+    if (num <= 0) {
+        console.log("all done!");
+    }
+    console.log(num);
+    num--;
+    countDown(num);
+}
