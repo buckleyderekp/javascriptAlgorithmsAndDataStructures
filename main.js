@@ -200,3 +200,9 @@ function factorial(num) {
     }
     return total
 }
+// factorial with recursion
+
+function factrorialRec(num) {
+    if (num === 1) return 1
+    return num * factrorialRec(num - 1)
+}
